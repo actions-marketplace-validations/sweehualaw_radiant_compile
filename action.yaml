@@ -12,19 +12,15 @@ runs:
       uses: sweehualaw/radiant_synthesis@v2
       with:
         RDF: ${{ inputs.RDF }}
-      shell: bash
     - name: 'Radiant Map'
       uses: sweehualaw/radiant_map@v2
       with:
         RDF: ${{ inputs.RDF }}
-      shell: bash
     - name: 'Radiant PAR'
       uses: sweehualaw/radiant_par@v2
       with:
         RDF: ${{ inputs.RDF }}
-      shell: bash
     - name: 'Radiant export'
       uses: sweehualaw/radiant_export@v2
       with:
         RDF: ${{ inputs.RDF }}
-      shell: bash
