@@ -9,14 +9,18 @@ runs:
   using: "composite"
   steps:
     - name: Radiant Synthesis
-      run: pnmainc ${{ github.action_path }}/synthesis.tcl ${{ inputs.RDF }}
-      shell: bash
-    - name: Radiant Map
-      run: pnmainc ${{ github.action_path }}/map.tcl ${{ inputs.RDF }}
-      shell: bash
-    - name: Radiant PAR
-      run: pnmainc ${{ github.action_path }}/par.tcl ${{ inputs.RDF }}
-      shell: bash
-    - name: Radiant export
-      run: pnmainc ${{ github.action_path }}/export.tcl ${{ inputs.RDF }}
-      shell: bash
+      uses: sweehualaw/radiant_synthesis@v2
+      with:
+        RDF: ${{ inputs.RDF }}
+    - name: 'Radiant Map'
+      uses: sweehualaw/radiant_map@v2
+      with:
+        RDF: ${{ inputs.RDF }}
+    - name: 'Radiant PAR'
+      uses: sweehualaw/radiant_par@v2
+      with:
+        RDF: ${{ inputs.RDF }}
+    - name: 'Radiant export'
+      uses: sweehualaw/radiant_export@v2
+      with:
+        RDF: ${{ inputs.RDF }}
